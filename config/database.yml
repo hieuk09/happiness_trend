@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: happiness_trend_developement
+
+test:
+  <<: *default
+  database: happiness_trend_test
+
+production:
+  <<: *default
+  database: happiness_trend_production
+  user: tinypulse
