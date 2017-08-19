@@ -3,6 +3,7 @@ class CreateResponses < ActiveRecord::Migration[5.0]
     create_table :responses do |t|
       t.references :question
       t.integer :answer
+      t.text :detail
 
       t.timestamps
     end

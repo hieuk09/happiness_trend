@@ -14,7 +14,7 @@
   <tbody>
     <% @responses.each do |response| %>
       <tr>
-        <td><%= response.question %></td>
+        <td><%= response.question.prompt %></td>
         <td><%= response.answer %></td>
         <td><%= link_to 'Show', response %></td>
         <td><%= link_to 'Edit', edit_response_path(response) %></td>

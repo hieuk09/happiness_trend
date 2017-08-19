@@ -1,5 +1,7 @@
-<h1>New Response</h1>
+<h1 class='question'><%= @question.prompt %></h1>
 
-<%= render 'form', response: @response %>
-
-<%= link_to 'Back', responses_path %>
+<div class='choices'>
+  <span><%= image_tag 'happy_face.png', class: 'choice' %></span>
+  <span><%= image_tag 'straight_face.png', class: 'choice' %></span>
+  <span><%= image_tag 'sad_face.png', class: 'choice' %></span>
+</div>

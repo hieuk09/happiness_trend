@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :question %>
-    <%= f.text_field :question %>
+    <%= f.label :question_id %>
+    <%= f.select :question_id, options_for_select(@question_data) %>
   </div>
 
   <div class="field">

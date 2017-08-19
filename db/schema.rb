@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170812151126) do
   create_table "responses", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "answer"
+    t.text     "detail"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_responses_on_question_id", using: :btree
