@@ -11,17 +11,31 @@ describe ResponsesController do
   end
 
   describe 'GET new' do
-    let(:question) { double('Question') }
+    context 'when there is no response today' do
+      let(:question) { double('Question') }
 
-    before do
-      expect(Question).to receive(:default_question)
-        .and_return(question)
+      before do
+        expect(Question).to receive(:default_question)
+          .and_return(question)
+      end
+
+      it 'returns default question and a new response' do
+        get :new
+        expect(assigns[:question]).to eq question
+        expect(assigns[:response]).to be_new_record
+        expect(response).to render_template('new')
+      end
     end
 
-    it 'returns default question and a new response' do
-      get :new
-      expect(assigns[:question]).to eq question
-      expect(assigns[:response]).to be_new_record
+    context 'when there is one response today' do
+      let!(:existed_response) { create(:response, created_at: Time.current) }
+
+      it 'renders already rated page' do
+        get :new
+        expect(assigns[:question]).to be_nil
+        expect(assigns[:response]).to be_nil
+        expect(response).to render_template('already_answer')
+      end
     end
   end
 

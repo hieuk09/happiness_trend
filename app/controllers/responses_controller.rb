@@ -6,8 +6,12 @@ class ResponsesController < ApplicationController
 
   # GET /responses/new
   def new
-    @question = Question.default_question
-    @response = Response.new
+    if Response.answer_on(Date.today).exists?
+      render 'already_answer'
+    else
+      @question = Question.default_question
+      @response = Response.new
+    end
   end
 
   # POST /responses
