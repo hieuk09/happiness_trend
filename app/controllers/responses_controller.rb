@@ -23,13 +23,13 @@ class ResponsesController < ApplicationController
 
   # POST /responses
   def create
-    debugger
-    @response = Response.new(response_params)
+    question = Question.default_question
+    response = Response.new(response_params.merge(question_id: question.id))
 
-    if @response.save
-      redirect_to @response, notice: 'Response was successfully created.'
+    if response.save
+      render json: { status: 'success' }, status: 200
     else
-      render :new
+      render json: { error: response.errors.full_messages.join(', ') }, status: 422
     end
   end
 
@@ -56,6 +56,6 @@ class ResponsesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def response_params
-      params.require(:response).permit(:question_id, :answer)
+      params.permit(:answer, :detail)
     end
 end
