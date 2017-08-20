@@ -1,10 +1,8 @@
 <%= stylesheet_link_tag 'responses_index' %>
 
-<p id="notice"><%= notice %></p>
-
 <h1>Happiness Trend</h1>
 
-<canvas id='trend'></canvas>
+<div class='trend'></div>
 
 <table>
   <thead>
@@ -22,7 +20,7 @@
         <td><%= response.question.prompt %></td>
         <td><%= response.answer_in_text %></td>
         <td><%= response.detail %></td>
-        <td><%= response.created_at.to_date %></td>
+        <td><%= response.created_date %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,3 +29,5 @@
 <br>
 
 <%= link_to 'New Response', new_response_path %>
+
+<%= javascript_include_tag 'responses_index' %>

@@ -10,4 +10,5 @@ Rails.application.config.assets.precompile += %w(
   responses_already_answer.scss
   responses_index.scss
   responses.js
+  responses_index.js
 )

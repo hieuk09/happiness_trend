@@ -2,15 +2,29 @@ class ResponsesController < ApplicationController
   # GET /responses
   def index
     @responses = Response.all
+
+    respond_to do |format|
+      format.html { }
+
+      format.json {
+        data = @responses.map do |response|
+          {
+            created_date: response.created_date,
+            answer: response.answer
+          }
+        end
+        render json: data
+      }
+    end
   end
 
   # GET /responses/new
   def new
     if Response.answer_on(Date.today).exists?
+      render 'already_answer'
+    else
       @question = Question.default_question
       @response = Response.new
-    else
-      render 'already_answer'
     end
   end
 

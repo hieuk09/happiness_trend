@@ -12,6 +12,10 @@ class Response < ApplicationRecord
     ANSWER_MAPPING[answer]
   end
 
+  def created_date
+    created_at.to_date
+  end
+
   def self.answer_on(date)
     duration = date.beginning_of_day..date.end_of_day
     where(created_at: duration)
