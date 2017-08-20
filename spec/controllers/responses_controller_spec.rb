@@ -28,7 +28,7 @@ describe ResponsesController do
     end
 
     context 'when there is one response today' do
-      let!(:existed_response) { create(:response, created_at: Time.current) }
+      let!(:existed_response) { create(:response, created_at: Date.today) }
 
       it 'renders already rated page' do
         get :new
