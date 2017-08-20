@@ -1,13 +1,7 @@
 class ResponsesController < ApplicationController
-  before_action :set_response, only: [:show, :edit, :update, :destroy]
-
   # GET /responses
   def index
     @responses = Response.all
-  end
-
-  # GET /responses/1
-  def show
   end
 
   # GET /responses/new
@@ -16,13 +10,9 @@ class ResponsesController < ApplicationController
     @response = Response.new
   end
 
-  # GET /responses/1/edit
-  def edit
-    @question_data = Question.pluck(:prompt, :id)
-  end
-
   # POST /responses
   def create
+    response_params = params.permit(:answer, :detail)
     question = Question.default_question
     response = Response.new(response_params.merge(question_id: question.id))
 
@@ -32,30 +22,4 @@ class ResponsesController < ApplicationController
       render json: { error: response.errors.full_messages.join(', ') }, status: 422
     end
   end
-
-  # PATCH/PUT /responses/1
-  def update
-    if @response.update(response_params)
-      redirect_to @response, notice: 'Response was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /responses/1
-  def destroy
-    @response.destroy
-    redirect_to responses_url, notice: 'Response was successfully destroyed.'
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_response
-      @response = Response.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def response_params
-      params.permit(:answer, :detail)
-    end
 end
