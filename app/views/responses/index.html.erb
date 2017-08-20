@@ -17,7 +17,7 @@
     <% @responses.each do |response| %>
       <tr>
         <td><%= response.question.prompt %></td>
-        <td><%= response.answer %></td>
+        <td><%= response.answer_in_text %></td>
         <td><%= response.detail %></td>
         <td><%= response.created_at.to_date %></td>
         <td><%= link_to 'Show', response %></td>
