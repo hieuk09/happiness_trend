@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'responses_new' %>
+
 <h1 class='question'><%= @question.prompt %></h1>
 
 <div class='choices'>
@@ -13,3 +15,5 @@
 <div class='action'>
   <button id='submit'>Submit</button>
 </div>
+
+<%= javascript_include_tag 'responses' %>

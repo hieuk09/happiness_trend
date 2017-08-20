@@ -1,0 +1,17 @@
+//= require scaffolds
+
+h1.rated {
+  text-align: center;
+
+  div {
+    margin-top: 20px;
+  }
+}
+
+.past_rating {
+  text-align: center;
+
+  a {
+    font-size: 16px;
+  }
+}
