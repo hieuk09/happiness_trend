@@ -5,7 +5,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       format.html {
-        @average = Response.average(:answer)
+        @average = Response.average(:answer).round(2)
 
         @style = if @average > 2
           'happy'
