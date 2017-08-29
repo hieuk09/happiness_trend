@@ -1,8 +1,8 @@
 class Response < ApplicationRecord
   ANSWER_MAPPING = {
-    1 => 'Sad',
-    2 => 'Normal',
-    3 => 'Happy'
+    1 => 'sad',
+    2 => 'normal',
+    3 => 'happy'
   }
 
   belongs_to :question

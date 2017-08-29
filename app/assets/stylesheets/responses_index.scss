@@ -1,2 +1,80 @@
 //= require scaffolds
 //= require vendor/chartist.min
+
+.title {
+  text-align: center;
+
+  .average {
+    margin: 40px;
+
+    .box {
+      border-radius: 20%;
+      color: white;
+      display: inline-box;
+      font-size: 30px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .happy {
+      background: #12B96C;
+    }
+
+    .normal {
+      background: #F8DF65;
+    }
+
+    .sad {
+      background: #EE3A40;
+    }
+  }
+}
+
+.responses {
+  color: white;
+  margin: 20px 10%;
+  width: 80%;
+
+  .row {
+    margin: 10px;
+
+    .detail {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+
+  .happy {
+    background: #12B96C;
+  }
+
+  .normal {
+    background: #F8DF65;
+  }
+
+  .sad {
+    background: #EE3A40;
+  }
+}
+
+.action {
+  background: #337ab7;
+  border: transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 30px;
+
+  &:hover {
+    background: #286090;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}

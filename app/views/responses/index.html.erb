@@ -1,33 +1,29 @@
 <%= stylesheet_link_tag 'responses_index' %>
 
-<h1>Happiness Trend</h1>
+<div class='title'>
+  <h1>
+    Your average happiness score:
+  </h1>
+
+  <div class='average'>
+    <span class="box <%= @style %>">
+      <%= @average %>
+    </span>
+  </div>
+</div>
 
 <div class='trend'></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th>Answer</th>
-      <th>Detail</th>
-      <th>Date</th>
-    </tr>
-  </thead>
+<div class='responses'>
+  <% @responses.each do |response| %>
+    <div class="row <%= response.answer_in_text %>">
+      <div class='detail'><%= response.detail %></div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @responses.each do |response| %>
-      <tr>
-        <td><%= response.question.prompt %></td>
-        <td><%= response.answer_in_text %></td>
-        <td><%= response.detail %></td>
-        <td><%= response.created_date %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Response', new_response_path %>
+<div class='action'>
+  <%= link_to 'New Response', new_response_path %>
+</div>
 
 <%= javascript_include_tag 'responses_index' %>

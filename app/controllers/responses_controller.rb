@@ -4,7 +4,17 @@ class ResponsesController < ApplicationController
     @responses = Response.all
 
     respond_to do |format|
-      format.html { }
+      format.html {
+        @average = Response.average(:answer)
+
+        @style = if @average > 2
+          'happy'
+        elsif @average > 1
+          'normal'
+        else
+          'sad'
+        end
+      }
 
       format.json {
         data = @responses.map do |response|
