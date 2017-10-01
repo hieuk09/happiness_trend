@@ -1,6 +1,6 @@
 class Response < ApplicationRecord
   ANSWER_MAPPING = {
-    1 => 'sad',
+    0 => 'sad',
     2 => 'normal',
     3 => 'happy'
   }
