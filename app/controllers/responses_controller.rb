@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
   # GET /responses
   def index
-    @responses = Response.all
+    @responses = Response.all.order(created_at: :asc)
 
     respond_to do |format|
       format.html {
