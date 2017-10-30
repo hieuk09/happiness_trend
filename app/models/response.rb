@@ -4,6 +4,7 @@ class Response < ApplicationRecord
     2 => 'normal',
     3 => 'happy'
   }
+  VALUE_MAPPING = ANSWER_MAPPING.invert
 
   belongs_to :question
   validates :answer, :question, presence: true
