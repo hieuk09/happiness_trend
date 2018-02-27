@@ -3,9 +3,9 @@
 <h1 class='question'><%= @question.prompt %></h1>
 
 <div class='choices'>
-  <span><%= image_tag 'sad_face.png', class: 'choice', data: { value: Response::EMOTION_MAPPING['sad'] } %></span>
-  <span><%= image_tag 'straight_face.png', class: 'choice', data: { value: Response::EMOTION_MAPPING['normal'] } %></span>
-  <span><%= image_tag 'happy_face.png', class: 'choice', data: { value: Response::EMOTION_MAPPING['happy'] } %></span>
+  <span><%= image_tag 'sad_face.png', class: 'choice', data: { value: Response::VALUE_MAPPING['sad'] } %></span>
+  <span><%= image_tag 'straight_face.png', class: 'choice', data: { value: Response::VALUE_MAPPING['normal'] } %></span>
+  <span><%= image_tag 'happy_face.png', class: 'choice', data: { value: Response::VALUE_MAPPING['happy'] } %></span>
 </div>
 
 <div class='detail'>
