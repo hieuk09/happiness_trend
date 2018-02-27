@@ -16,6 +16,7 @@
 
 <div class='responses'>
   <% @responses.each do |response| %>
+    <div><%= response.created_at.strftime('%F') %>
     <div class="row <%= response.answer_in_text %>">
       <div class='detail'><%= simple_format(response.detail) %></div>
     </div>
